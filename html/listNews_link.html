@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+<title>中国童书博览会--新闻动态</title>
+<link rel="stylesheet" href="../css/style.css" />
+<script src="../js/jquery-1.7.2.js"></script>
+<script src="../js/png.js"></script>
+</head>
+<!--[if IE 6]>
+<script type="text/javascript"  src="../js/png.js"></script>
+<script type="text/javascript">
+window.attachEvent('onload', function(){
+   DD_belatedPNG.fix('*');
+});
+</script>
+<![endif]-->
+<body class="bg">
+   <div class="header">
+       <div class="w1600">
+           <div class="logo">
+               <a href="../index.html"><img src="../images/logo.png" alt="" /></a>
+           </div>
+           <div class="nav">
+                <a href="../index.html">首页</a>
+                <a class="on" href="listNews.html">新闻动态</a>
+                <a href="active.html">活动介绍</a>
+                <a href="active_guide.html">活动指南</a>
+                <a href="Look_room.html">参展指南</a>
+                <a href="ours.html">关于我们</a>
+                <div class="share">
+                  <a href="javascript:;" class="icon2"></a>
+                  <img src="../images/weixin.jpg" alt="" />
+               </div>
+           </div>
+       </div>
+   </div>
+   <div class="main bgf">
+         <div class="pageLink">
+              <a href="../index.html">首页</a> > <span>新闻动态</span>
+        </div>
+         <div class="ActiveShow">
+            <div class="active_txt" style="float:none">
+                  <h3 class="lltxt">60多家出版社精选上千种童书大漂流</h3>
+                  <span class="newsTime"></span>
+                  <div id="newsMore">
+
+                  </div>
+            </div>
+         </div>
+   </div>
+   <div class="footer">
+      <div class="w1600">
+          <p>
+            <a href="javascript:;">关于中国童书博览会</a>
+            <a href="ours.html">联系我们</a>
+          </p>
+          <p>
+             <a href="javascript:;">新华网读书会频道</a>
+             <a href="javascript:;">腾讯网儿童频道</a>
+             <a href="javascript:;">新浪网读书频道</a>
+             <a href="javascript:;">搜狐网读书频道</a>
+             <a href="javascript:;">凤凰网读书频道</a>
+             <a href="javascript:;">未来网</a>
+          </p>
+          <p>
+            Copyright @2014-2017 中国童书博览会 版权所有<br/>
+            京IC备14008091号
+          </p>
+      </div>
+   </div>
+   <script type="text/javascript">
+      //js解析url 获取请求参数
+        function getQueryString(name,def) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return r[2];
+            }
+            return def;
+        }
+
+     $(document).ready(function(){
+         $(".share a").mouseover(function(){
+             $(this).siblings('img').css("display","block");
+         });
+         $(".share a").mouseout(function(){
+             $(this).siblings('img').css("display","none");
+         });
+
+         //通过id 获取新闻内容
+         var newsId= getQueryString("id");
+         $.ajax({
+               url:'http://book.798artplus.com/common/api/v1/002-getContent',
+               type:'get',
+               dataType:'json',
+               data:{
+                id:newsId
+               },
+               success:function(data){
+                    if(data.message=="success"){
+                       $(".lltxt").html(data.rows.title);
+                       $(".newsTime").html(data.rows.createTime);
+                       $("#newsMore").html(data.rows.content);
+                    }else{
+                       $("#newsMore").html("暂无此新闻！");
+                    }
+               }
+         })
+
+     })
+   </script>
+</body>
+</body>
+</html>

@@ -1,0 +1,32 @@
+.page{
+    list-style: none;
+    text-align:center;
+}
+.page>li{
+    padding: 3px 10px;
+    cursor: pointer;
+    display:inline-block;
+    font-size: 13px;
+}
+.page .pageItem{
+    border: solid thin #eee;
+    margin: 5px;
+    color:#999;
+}
+.page .pageItemActive{
+    border: solid thin #ee7c3e;
+    margin: 5px;
+    background-color: #ee7c3e;
+    color:white;
+}
+.page .pageItem:hover{
+    border: solid thin #ee7c3e;
+    background-color: #ee7c3e;
+    color:white;
+}
+.page .pageItemDisable{
+    color:#666;
+    border: solid thin #DDDDDD;
+    margin: 5px;
+    background-color: #DDDDDD;
+}
