@@ -137,7 +137,7 @@ body a,body input{outline:none; blr:expression(this.onFocus=this.blur());}
 .active_txt p.txt_indent{ padding-left:30px;}
 .ActiveShow .active_txt p{ text-indent: 0;}
 .ActiveShow .active_txt p.center{ text-align:center;}
-.ActiveShow .active_txt p img{  margin:10px auto; width:600px;}
+.ActiveShow .active_txt p img{  margin:10px auto; width:500px;}
 .border_line{ border-top: solid 1px #eee;margin-top: 20px; float:left;}
 .active_txt strong.fz20{ font-size: 20px; color:#f09f6c;}
 .active_txt h3.lltxt{color:#ee7c3e;}
